@@ -6,6 +6,7 @@
 - [Inspiration](#-inspiration)
 - [What It Does](#%EF%B8%8F-what-it-does)
 - [Architecture](#-architecture)
+- [Data](#-data)
 - [How We Built It](#%EF%B8%8F-how-we-built-it)
 - [Challenges We Faced](#-challenges-we-faced)
 - [Future Scope](#-future-scope)
@@ -51,6 +52,9 @@ The inspiration behind this project stems from the need to streamline regulatory
 ## 🏗 Architecture
 ![Gen AI Hackathon (2)](https://github.com/user-attachments/assets/75540c4c-5fb1-4936-a52a-a9b63e43ec8b)
 
+## Data
+Transaction csv : "code\src\Backend server\assets\sample_transaction.csv"
+Procedural rules pdf : "code\src\Backend server\assets\schedule-h.pdf"
 
 
 ## 🛠️ How We Built It
