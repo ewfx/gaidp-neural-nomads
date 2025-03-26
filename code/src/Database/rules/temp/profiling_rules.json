@@ -1,0 +1,1620 @@
+{
+    "Customer ID": {
+        "field_number": "1",
+        "type": "string",
+        "format": "alphanumeric",
+        "required": true,
+        "unique": true,
+        "validation_rules": [
+            "Must not be empty",
+            "Must be alphanumeric",
+            "Length must be between 5 and 20 characters"
+        ]
+    },
+    "Internal ID": {
+        "field_number": "2",
+        "type": "integer",
+        "format": null,
+        "required": true,
+        "unique": true,
+        "validation_rules": [
+            "Must be a positive integer",
+            "Must not contain leading zeros"
+        ]
+    },
+    "Original Internal ID": {
+        "field_number": "3",
+        "type": "string",
+        "format": null,
+        "required": true,
+        "unique": true,
+        "validation_rules": [
+            "Must not be empty",
+            "Must not contain leading or trailing whitespace",
+            "Maximum length of 50 characters"
+        ]
+    },
+    "Obligor Name": {
+        "field_number": "2",
+        "data_type": "varchar(255)",
+        "format": "Free text, full legal entity name or 'Individual'. Example: ABC Corp or Individual",
+        "required": true,
+        "unique": false,
+        "validation_rules": [
+            "Field length must be less than or equal to 255 characters.",
+            "Field must not contain a vertical bar, carriage return, line feed, comma or any unprintable character.",
+            "If the borrowing entity is an individual, the value must be 'Individual'."
+        ]
+    },
+    "City": {
+        "field_number": "5",
+        "type": "string",
+        "format": null,
+        "required": true,
+        "unique": false,
+        "validation_rules": [
+            "Must not be empty",
+            "Must contain only alphabetic characters, spaces, hyphens, and apostrophes",
+            "Maximum length of 100 characters",
+            "Must exist in a valid city list (reference data)"
+        ]
+    },
+    "Country": {
+        "field_number": "6",
+        "type": "string",
+        "format": null,
+        "required": true,
+        "unique": false,
+        "validation_rules": [
+            "Value must be a valid ISO 3166-1 alpha-2 or alpha-3 country code",
+            "Value must be a valid country name from a recognized list (e.g., UN, ISO)"
+        ]
+    },
+    "Zip Code": {
+        "field_number": "7",
+        "type": "string",
+        "format": "##### or #####-####",
+        "required": true,
+        "unique": false,
+        "validation_rules": [
+            "Must be 5 digits or 5 digits followed by a hyphen and 4 digits",
+            "Must match regular expression: ^\\d{5}(-\\d{4})?$",
+            "Values should correspond to valid geographic locations"
+        ]
+    },
+    "Industry Code": {
+        "field_number": "8",
+        "type": "string",
+        "format": "NAICS or SIC code format",
+        "required": true,
+        "unique": false,
+        "validation_rules": [
+            "Must be a valid NAICS or SIC code.",
+            "Must be a string of 2-6 digits for NAICS or 4 digits for SIC."
+        ]
+    },
+    "Industry Code Type": {
+        "field_number": "9",
+        "type": "string",
+        "format": null,
+        "required": true,
+        "unique": false,
+        "validation_rules": [
+            "Must be a valid industry code from a defined standard (e.g., NAICS, SIC, ISIC).",
+            "Value should be uppercase.",
+            "Value should not contain leading or trailing whitespace."
+        ]
+    },
+    "Obligor Internal Risk Rating": {
+        "field_number": "10",
+        "type": "string",
+        "format": null,
+        "required": true,
+        "unique": false,
+        "validation_rules": [
+            "Must be a valid internal risk rating code.",
+            "Value must exist in the Internal Risk Rating Code table.",
+            "Maximum length of 20 characters."
+        ]
+    },
+    "TIN": {
+        "field_number": "11",
+        "type": "string",
+        "format": "XXXXXXXXX",
+        "required": true,
+        "unique": true,
+        "validation_rules": [
+            "Must be 9 digits",
+            "Must match the pattern ^[0-9]{9}$",
+            "Must pass checksum validation (if applicable, specify algorithm)"
+        ]
+    },
+    "Stock Exchange": {
+        "field_number": "12",
+        "type": "string",
+        "format": null,
+        "required": true,
+        "unique": false,
+        "validation_rules": [
+            "Must be a valid stock exchange code (e.g., NYSE, NASDAQ, LSE, TSE)",
+            "Value should be in uppercase"
+        ]
+    },
+    "Ticker Symbol": {
+        "field_number": "13",
+        "type": "string",
+        "format": "Uppercase alphanumeric (e.g., AAPL, MSFT, GOOGL)",
+        "required": true,
+        "unique": false,
+        "validation_rules": [
+            "Must be between 1 and 5 characters long",
+            "Must consist of uppercase letters and/or numbers",
+            "Must be a valid ticker symbol (consider validating against a known list of ticker symbols)"
+        ]
+    },
+    "CUSIP": {
+        "field_number": "14",
+        "type": "string",
+        "format": "9 alphanumeric characters",
+        "required": true,
+        "unique": false,
+        "validation_rules": [
+            "Must be 9 characters long",
+            "First 6 characters must be alphanumeric",
+            "7th and 8th characters must be numeric",
+            "9th character is a check digit calculated using a specific algorithm (refer to CUSIP documentation)",
+            "Must conform to the CUSIP standard"
+        ]
+    },
+    "Internal Credit Facility ID": {
+        "field_number": "15",
+        "type": "string",
+        "format": "alphanumeric, may contain hyphens or underscores",
+        "required": true,
+        "unique": true,
+        "validation_rules": [
+            "Must not be empty",
+            "Must be a valid identifier within the internal credit facility system",
+            "Maximum length of 50 characters",
+            "Must not contain special characters other than hyphens or underscores"
+        ]
+    },
+    "Original Internal Credit Facility ID": {
+        "field_number": "16",
+        "type": "string",
+        "format": null,
+        "required": true,
+        "unique": true,
+        "validation_rules": [
+            "Must not be empty",
+            "Must not contain leading or trailing whitespace",
+            "Must not contain special characters other than hyphens or underscores",
+            "Maximum length of 50 characters"
+        ]
+    },
+    "Origination Date": {
+        "field_number": "10",
+        "data_type": "date",
+        "format": "YYYY-MM-DD. Example: 2023-10-26",
+        "required": true,
+        "unique": false,
+        "validation_rules": [
+            "Value must match the format 'YYYY-MM-DD'.",
+            "Value must be a valid date.",
+            "Value must be before or equal to the period end date."
+        ]
+    },
+    "Maturity Date": {
+        "field_number": "19",
+        "data_type": "date",
+        "format": "YYYY-MM-DD. Example: 2023-10-27",
+        "required": true,
+        "unique": false,
+        "validation_rules": [
+            "Value must match the format 'YYYY-MM-DD'.",
+            "Value must be a valid date.",
+            "Value must be greater than or equal to Origination Date.",
+            "If Maturity Date is '9999-01-01', then the loan is a demand loan."
+        ]
+    },
+    "Credit Facility Type": {
+        "field_number": "20",
+        "type": "string",
+        "format": null,
+        "required": true,
+        "unique": false,
+        "validation_rules": [
+            "Must be a valid credit facility type from a predefined list (e.g., 'Line of Credit', 'Term Loan', 'Mortgage', 'Credit Card')",
+            "Maximum length: 50 characters",
+            "Value should not be empty or null"
+        ]
+    },
+    "Other Credit Facility Type Description": {
+        "field_number": "21",
+        "type": "string",
+        "format": null,
+        "required": false,
+        "unique": false,
+        "validation_rules": [
+            "Maximum length of 255 characters",
+            "Should not contain profanity or offensive language"
+        ]
+    },
+    "Credit Facility Purpose": {
+        "field_number": "22",
+        "type": "string",
+        "format": null,
+        "required": true,
+        "unique": false,
+        "validation_rules": [
+            "Must be a valid purpose from a predefined list (e.g., Working Capital, Equipment Purchase, Debt Refinancing, Real Estate)",
+            "Maximum length: 255 characters",
+            "Must not be empty or null"
+        ]
+    },
+    "Other Credit Facility Purpose Description": {
+        "field_number": "23",
+        "type": "string",
+        "format": null,
+        "required": false,
+        "unique": false,
+        "validation_rules": [
+            "Maximum length of 255 characters",
+            "Should not contain profanity or offensive language",
+            "If 'Other' is selected as a credit facility purpose, this field is highly recommended"
+        ]
+    },
+    "Committed Exposure Global": {
+        "field_number": "5",
+        "data_type": "decimal(18,2)",
+        "format": "Rounded whole dollar amount, no commas or decimals. Example: 20000000.00",
+        "required": true,
+        "unique": false,
+        "validation_rules": [
+            "Value must be greater than or equal to 1000000.",
+            "Value must be less than or equal to 9999999999999999.99.",
+            "Value must be greater than or equal to Outstanding Balance."
+        ]
+    },
+    "Utilized Exposure Global": {
+        "field_number": "25",
+        "type": "integer",
+        "format": null,
+        "required": true,
+        "unique": false,
+        "validation_rules": [
+            "Must be a non-negative integer",
+            "Reasonable upper bound should be defined based on the context of the data (e.g., less than 1,000,000,000)",
+            "Cannot be null or empty"
+        ]
+    },
+    "Line Reported on FR Y-9C": {
+        "field_number": "4",
+        "data_type": "integer",
+        "format": "Integer code. Example: 1",
+        "required": true,
+        "unique": false,
+        "validation_rules": [
+            "Value must be one of the following: 1, 2, 3, 5, 7"
+        ]
+    },
+    "Line of Business": {
+        "field_number": "22",
+        "data_type": "varchar(255)",
+        "format": "Free text. Example: Private Banking",
+        "required": false,
+        "unique": false,
+        "validation_rules": [
+            "Value must be consistent with line of business names as reported in Schedule H.3 (Line of Business Schedule), Field 1."
+        ]
+    },
+    "Cumulative Charge-offs": {
+        "field_number": "6",
+        "data_type": "decimal(18,2)",
+        "format": "Rounded whole dollar amount, no commas or decimals. Example: 20000000.00 or 'NA'",
+        "required": true,
+        "unique": false,
+        "validation_rules": [
+            "Value must be 'NA' or a valid number.",
+            "If value is a number, it must be greater than or equal to 0.",
+            "If value is a number, it must be less than or equal to 9999999999999999.99.",
+            "If Lower of Cost or Market Flag is '1' (LOCOM) or '2' (FVO), then value must be 'NA'."
+        ]
+    },
+    "ASC 310-10": {
+        "field_number": "46",
+        "data_type": "decimal(20, 2)",
+        "format": "Rounded whole dollar amount with no cents, e.g.: 20000000.00. Supply numeric values without any non-numeric formatting such as dollar signs, commas or decimals.",
+        "required": true,
+        "unique": false,
+        "validation_rules": [
+            "Value must be greater than or equal to 0.00",
+            "If Outstanding Balance > 0, then ASC 310-10 >= 0",
+            "If Current Maturity Date = '9999-01-01', then value must be 0.00"
+        ]
+    },
+    "ASC310-30": {
+        "field_number": "31",
+        "data_type": "decimal(18, 2)",
+        "format": "Rounded whole dollar amount with no cents. Example: 20000000. Supply numeric values without any non-numeric formatting (no dollar sign, commas or decimal).",
+        "required": true,
+        "unique": false,
+        "validation_rules": [
+            "Value must be greater than or equal to 0.",
+            "Value must be 0 if ASU 2016-13 has been adopted.",
+            "For fully undrawn commitments, value must be 0."
+        ]
+    },
+    "# Days Principal or Interest Past Due": {
+        "field_number": "37",
+        "data_type": "integer",
+        "format": "Numbers only. Example: 0",
+        "required": true,
+        "unique": false,
+        "validation_rules": [
+            "Value must be greater than or equal to 0.",
+            "If the loan is fully undrawn, then value must be 0."
+        ]
+    },
+    "Non-Accrual Date": {
+        "field_number": "38",
+        "data_type": "date",
+        "format": "YYYY-MM-DD. Example: 2005-02-01",
+        "required": true,
+        "unique": false,
+        "validation_rules": [
+            "Value must be in YYYY-MM-DD format.",
+            "If a non-accrual date does not exist, then value must be '9999-12-31'.",
+            "If the loan is fully undrawn, then value must be '9999-12-31'."
+        ]
+    },
+    "Participation Flag": {
+        "field_number": "7",
+        "data_type": "integer",
+        "format": "Integer code. Example: 1",
+        "required": true,
+        "unique": false,
+        "validation_rules": [
+            "Value must be one of the following: 1, 2, 3, 4, 5"
+        ]
+    },
+    "Lien Position": {
+        "field_number": "8",
+        "data_type": "integer",
+        "format": "Integer code. Example: 1",
+        "required": true,
+        "unique": false,
+        "validation_rules": [
+            "Value must be one of the following: 1, 2, 3, 5"
+        ]
+    },
+    "Security Type": {
+        "field_number": "36",
+        "data_type": "integer",
+        "format": "Integer code representing the security type.",
+        "required": true,
+        "unique": false,
+        "validation_rules": [
+            "Value must be one of the following: 0, 1, 2, 3, 4, 5, 6."
+        ]
+    },
+    "Interest Rate Variability": {
+        "field_number": "26",
+        "data_type": "integer",
+        "format": "Integer code. Example: 1",
+        "required": true,
+        "unique": false,
+        "validation_rules": [
+            "Value must be one of the following: 1, 2, 3, 4.",
+            "1: Fixed",
+            "2: Floating",
+            "3: Mixed",
+            "4: Entirely fee based"
+        ]
+    },
+    "Interest Rate": {
+        "field_number": "27",
+        "data_type": "decimal(10,4)",
+        "format": "Decimal. Example: 0.0575",
+        "required": true,
+        "unique": false,
+        "validation_rules": [
+            "If Interest Rate Variability is 4 (Entirely fee based), then value must be 'NA'.",
+            "If Interest Rate Variability is not 4 (Entirely fee based), then value must be a valid decimal.",
+            "If Interest Rate Variability is 1 (Fixed), then Interest Rate Index must be 5 (Not applicable (Fixed or entirely fee based)).",
+            "Value must be greater than or equal to 0."
+        ]
+    },
+    "Interest Rate Index": {
+        "field_number": "28",
+        "data_type": "integer",
+        "format": "Integer code. Example: 1",
+        "required": true,
+        "unique": false,
+        "validation_rules": [
+            "Value must be one of the following: 1, 2, 3, 4, 5, 6, 7.",
+            "1: LIBOR",
+            "2: PRIME or Base",
+            "3: Treasury Index",
+            "4: Other",
+            "5: Not applicable (Fixed or entirely fee based)",
+            "6: Mixed",
+            "7: SOFR",
+            "If Interest Rate Variability is 1 (Fixed) or 4 (Entirely fee based), then value must be 5 (Not applicable (Fixed or entirely fee based))."
+        ]
+    },
+    "Interest Rate Spread": {
+        "field_number": "29",
+        "data_type": "decimal(10,4)",
+        "format": "Decimal. Example: 0.0575",
+        "required": true,
+        "unique": false,
+        "validation_rules": [
+            "If Interest Rate Variability is 1 (Fixed) or 4 (Entirely fee based), then value must be 'NA'.",
+            "If Interest Rate Variability is not 1 (Fixed) and not 4 (Entirely fee based), then value must be a valid decimal.",
+            "Value can be negative."
+        ]
+    },
+    "Interest Rate Ceiling": {
+        "field_number": "30",
+        "data_type": "varchar(10)",
+        "format": "Decimal or 'NONE' or 'NA'. Example: 0.0575 or NONE or NA",
+        "required": true,
+        "unique": false,
+        "validation_rules": [
+            "If Interest Rate Variability is 1 (Fixed) or 4 (Entirely fee based), then value must be 'NA'.",
+            "If Interest Rate Variability is not 1 (Fixed) and not 4 (Entirely fee based), then value must be a valid decimal or 'NONE'.",
+            "If value is a decimal, it must be greater than or equal to 0."
+        ]
+    },
+    "Interest Rate Floor": {
+        "field_number": "31",
+        "data_type": "varchar(10)",
+        "format": "Decimal or 'NONE' or 'NA'. Example: 0.0575 or NONE or NA",
+        "required": true,
+        "unique": false,
+        "validation_rules": [
+            "If Interest Rate Variability is 1 (Fixed) or 4 (Entirely fee based), then value must be 'NA'.",
+            "If Interest Rate Variability is not 1 (Fixed) and not 4 (Entirely fee based), then value must be a valid decimal or 'NONE'.",
+            "If value is a decimal, it must be greater than or equal to 0."
+        ]
+    },
+    "Interest Income Tax Status": {
+        "field_number": "43",
+        "data_type": "integer",
+        "format": "Integer code representing the interest income tax status.",
+        "required": true,
+        "unique": false,
+        "validation_rules": [
+            "Value must be one of the following: 1, 2."
+        ]
+    },
+    "Guarantor Flag": {
+        "field_number": "44",
+        "data_type": "integer",
+        "format": "Integer code representing the guarantor flag.",
+        "required": true,
+        "unique": false,
+        "validation_rules": [
+            "Value must be one of the following: 1, 2, 3, 4."
+        ]
+    },
+    "Guarantor Internal ID": {
+        "field_number": "45",
+        "data_type": "varchar(255)",
+        "format": "Free text. If the credit facility is not guaranteed, enter \u2018NA\u2019.",
+        "required": false,
+        "unique": false,
+        "validation_rules": [
+            "If Guarantor Flag is 4 (No guarantee), value must be 'NA'.",
+            "If Guarantor Flag is not 4, value must not be 'NA'."
+        ]
+    },
+    "Guarantor Name": {
+        "field_number": "46",
+        "data_type": "varchar(255)",
+        "format": "Full legal corporate name is desirable. If the guarantor is an individual(s) (Natural Person (s)), d o not report the na me; instead subs titute with the text: \"Individual.\" If the credit facility is not guaranteed, enter \u2018NA\u2019",
+        "required": false,
+        "unique": false,
+        "validation_rules": [
+            "If Guarantor Flag is 4 (No guarantee), value must be 'NA'.",
+            "If Guarantor Flag is not 4, value must not be 'NA'."
+        ]
+    },
+    "Guarantor TIN": {
+        "field_number": "47",
+        "data_type": "varchar(11)",
+        "format": "The 9 digit identification assigned by the Internal Revenue Service for the guarantor identified in Field 45. Allowable forms are either ##-#######, #########, or \u2018NA\u2019. If the credit facility is not guaranteed, enter \u2018NA\u2019",
+        "required": false,
+        "unique": false,
+        "validation_rules": [
+            "If Guarantor Flag is 4 (No guarantee), value must be 'NA'.",
+            "If Guarantor Flag is not 4, value must match the pattern '^\\d{2}-\\d{7}$' or '^\\d{9}$' or 'NA'."
+        ]
+    },
+    "Guarantor Internal Risk Rating": {
+        "field_number": "48",
+        "data_type": "varchar(255)",
+        "format": "Free text indicating the obligor rating grade. If the credit facility is not guaranteed or if the guarantor does not have a rating, enter \u2018NA\u2019",
+        "required": false,
+        "unique": false,
+        "validation_rules": [
+            "If Guarantor Flag is 4 (No guarantee), value must be 'NA'.",
+            "If Guarantor Flag is not 4, value must not be 'NA'."
+        ]
+    },
+    "Entity Internal ID": {
+        "field_number": "49",
+        "data_type": "varchar(255)",
+        "format": "Free text.",
+        "required": false,
+        "unique": false,
+        "validation_rules": [
+            "If the entity is the same as the Obligor identified in Field 2, value must be NULL."
+        ]
+    },
+    "Entity Name": {
+        "field_number": "50",
+        "data_type": "varchar(255)",
+        "format": "Full legal corporate name is desirable. If the entity is an individual(s) (Natural Person(s)), do not report the name; instead substitute with the text: \"Individual.\"",
+        "required": false,
+        "unique": false,
+        "validation_rules": [
+            "If the entity is the same as the Obligor identified in Field 2, value must be NULL."
+        ]
+    },
+    "Entity Internal Risk Rating": {
+        "field_number": "51",
+        "data_type": "varchar(255)",
+        "format": "Free text indicating the entity rating grade.",
+        "required": false,
+        "unique": false,
+        "validation_rules": [
+            "If the entity is the same as the Obligor identified in Field 2, value must be NULL."
+        ]
+    },
+    "Date of Financials": {
+        "field_number": "52",
+        "data_type": "varchar(10)",
+        "format": "YYYY-MM-DD. Example: 2005-02-01",
+        "required": true,
+        "unique": false,
+        "validation_rules": [
+            "Value must be a valid date in YYYY-MM-DD format.",
+            "Value must be before or equal to the report date."
+        ]
+    },
+    "Date of Last Audit": {
+        "field_number": "53",
+        "data_type": "date",
+        "format": "YYYY-MM-DD, e.g., 2005-02-01. If no audit date exists, use 9999-12-31.",
+        "required": true,
+        "unique": false,
+        "validation_rules": [
+            "Date must be a valid date.",
+            "Date must be before or equal to the reporting period end date.",
+            "If Date of Last Audit is not 9999-12-31, it must be before or equal to Date of Financials (Field 52)."
+        ]
+    },
+    "Net Sales Current": {
+        "field_number": "54",
+        "data_type": "decimal(20, 0)",
+        "format": "Rounded whole dollar amount, e.g., 20000000. No dollar sign, commas, or decimal.",
+        "required": true,
+        "unique": false,
+        "validation_rules": [
+            "Value must be a valid number.",
+            "Value must be greater than or equal to -9999999999999999999 and less than or equal to 9999999999999999999."
+        ]
+    },
+    "Net Sales Prior Year": {
+        "field_number": "55",
+        "data_type": "decimal(20, 0)",
+        "format": "Rounded whole dollar amount, e.g., 20000000. No dollar sign, commas, or decimal.",
+        "required": true,
+        "unique": false,
+        "validation_rules": [
+            "Value must be a valid number.",
+            "Value must be greater than or equal to -9999999999999999999 and less than or equal to 9999999999999999999."
+        ]
+    },
+    "Operating Income": {
+        "field_number": "56",
+        "data_type": "decimal(20, 0)",
+        "format": "Rounded whole dollar amount, e.g., 20000000. No dollar sign, commas, or decimal.",
+        "required": true,
+        "unique": false,
+        "validation_rules": [
+            "Value must be a valid number.",
+            "Value must be greater than or equal to -9999999999999999999 and less than or equal to 9999999999999999999."
+        ]
+    },
+    "Depreciation & Amortization": {
+        "field_number": "57",
+        "data_type": "decimal(20, 0)",
+        "format": "Rounded whole dollar amount, e.g., 20000000. No dollar sign, commas, or decimal.",
+        "required": true,
+        "unique": false,
+        "validation_rules": [
+            "Value must be a valid number.",
+            "Value must be greater than or equal to 0 and less than or equal to 9999999999999999999."
+        ]
+    },
+    "Interest Expense": {
+        "field_number": "58",
+        "data_type": "decimal(20, 0)",
+        "format": "Rounded whole dollar amount, e.g., 20000000. No dollar sign, commas, or decimal.",
+        "required": true,
+        "unique": false,
+        "validation_rules": [
+            "Value must be a valid number.",
+            "Value must be greater than or equal to 0 and less than or equal to 9999999999999999999."
+        ]
+    },
+    "Net Income Current": {
+        "field_number": "59",
+        "data_type": "decimal(20, 0)",
+        "format": "Rounded whole dollar amount, e.g., 20000000. No dollar sign, commas, or decimal.",
+        "required": true,
+        "unique": false,
+        "validation_rules": [
+            "Value must be a valid number.",
+            "Value must be greater than or equal to -9999999999999999999 and less than or equal to 9999999999999999999."
+        ]
+    },
+    "Net Income Prior Year": {
+        "field_number": "60",
+        "data_type": "decimal(20, 0)",
+        "format": "Rounded whole dollar amount, e.g., 20000000. No dollar sign, commas, or decimal.",
+        "required": true,
+        "unique": false,
+        "validation_rules": [
+            "Value must be a valid number.",
+            "Value must be greater than or equal to -9999999999999999999 and less than or equal to 9999999999999999999."
+        ]
+    },
+    "Cash & Marketable Securities": {
+        "field_number": "61",
+        "data_type": "decimal(20, 0)",
+        "format": "Rounded whole dollar amount, e.g., 20000000. No dollar sign, commas, or decimal.",
+        "required": true,
+        "unique": false,
+        "validation_rules": [
+            "Value must be a valid number.",
+            "Value must be greater than or equal to 0 and less than or equal to 9999999999999999999."
+        ]
+    },
+    "Accounts Receivable (A/R) Current": {
+        "field_number": "62",
+        "data_type": "decimal(20, 0)",
+        "format": "Rounded whole dollar amount, e.g., 20000000. No dollar sign, commas, or decimal.",
+        "required": true,
+        "unique": false,
+        "validation_rules": [
+            "Value must be a valid number.",
+            "Value must be greater than or equal to 0 and less than or equal to 9999999999999999999."
+        ]
+    },
+    "Accounts Receivable (A/R) Prior Year": {
+        "field_number": "63",
+        "data_type": "decimal(20, 0)",
+        "format": "Rounded whole dollar amount, e.g., 20000000. No dollar sign, commas, or decimal.",
+        "required": true,
+        "unique": false,
+        "validation_rules": [
+            "Value must be a valid number.",
+            "Value must be greater than or equal to 0 and less than or equal to 9999999999999999999."
+        ]
+    },
+    "Inventory Current": {
+        "field_number": "64",
+        "data_type": "decimal(20, 0)",
+        "format": "Rounded whole dollar amount, e.g., 20000000. No dollar sign, commas, or decimal.",
+        "required": true,
+        "unique": false,
+        "validation_rules": [
+            "Value must be a valid number.",
+            "Value must be greater than or equal to 0 and less than or equal to 9999999999999999999."
+        ]
+    },
+    "Inventory Prior Year": {
+        "field_number": "65",
+        "data_type": "decimal(20, 0)",
+        "format": "Rounded whole dollar amount, e.g., 20000000. No dollar sign, commas, or decimal.",
+        "required": true,
+        "unique": false,
+        "validation_rules": [
+            "Value must be a valid number.",
+            "Value must be greater than or equal to 0 and less than or equal to 9999999999999999999."
+        ]
+    },
+    "Current Assets Current": {
+        "field_number": "66",
+        "data_type": "decimal(20, 0)",
+        "format": "Rounded whole dollar amount, e.g., 20000000. No dollar sign, commas, or decimal.",
+        "required": true,
+        "unique": false,
+        "validation_rules": [
+            "Value must be a valid number.",
+            "Value must be greater than or equal to 0 and less than or equal to 9999999999999999999.",
+            "Value must be greater than or equal to Cash & Marketable Securities (Field 61) + Accounts Receivable (A/R) Current (Field 62) + Inventory Current (Field 64)."
+        ]
+    },
+    "Current Assets Prior Year": {
+        "field_number": "67",
+        "data_type": "decimal(20, 0)",
+        "format": "Rounded whole dollar amount, e.g., 20000000. No dollar sign, commas, or decimal.",
+        "required": true,
+        "unique": false,
+        "validation_rules": [
+            "Value must be a valid number.",
+            "Value must be greater than or equal to 0 and less than or equal to 9999999999999999999."
+        ]
+    },
+    "Tangible Assets": {
+        "field_number": "68",
+        "data_type": "decimal(20, 0)",
+        "format": "Rounded whole dollar amount, e.g., 20000000. No dollar sign, commas, or decimal.",
+        "required": true,
+        "unique": false,
+        "validation_rules": [
+            "Value must be a valid number.",
+            "Value must be greater than or equal to 0 and less than or equal to 9999999999999999999."
+        ]
+    },
+    "Fixed Assets": {
+        "field_number": "69",
+        "data_type": "decimal(20, 0)",
+        "format": "Rounded whole dollar amount, e.g., 20000000. No dollar sign, commas, or decimal.",
+        "required": true,
+        "unique": false,
+        "validation_rules": [
+            "Value must be a valid number.",
+            "Value must be greater than or equal to 0 and less than or equal to 9999999999999999999."
+        ]
+    },
+    "Total Assets (TA) Current": {
+        "field_number": "70",
+        "data_type": "decimal(20, 0)",
+        "format": "Rounded whole dollar amount, e.g., 20000000. No dollar sign, commas, or decimal.",
+        "required": true,
+        "unique": false,
+        "validation_rules": [
+            "Value must be a valid number.",
+            "Value must be greater than or equal to 0 and less than or equal to 9999999999999999999.",
+            "Value must be greater than or equal to Current Assets Current (Field 66)."
+        ]
+    },
+    "Total Assets (TA) Prior Year": {
+        "field_number": "71",
+        "data_type": "decimal(20, 0)",
+        "format": "Rounded whole dollar amount, e.g., 20000000. No dollar sign, commas, or decimal.",
+        "required": true,
+        "unique": false,
+        "validation_rules": [
+            "Value must be a valid number.",
+            "Value must be greater than or equal to 0 and less than or equal to 9999999999999999999."
+        ]
+    },
+    "Accounts Payable (A/P) Current": {
+        "field_number": "72",
+        "data_type": "decimal(20, 0)",
+        "format": "Rounded whole dollar amount, e.g., 20000000. No dollar sign, commas, or decimal.",
+        "required": true,
+        "unique": false,
+        "validation_rules": [
+            "Value must be a valid number.",
+            "Value must be greater than or equal to 0 and less than or equal to 9999999999999999999."
+        ]
+    },
+    "Accounts Payable (A/P) Prior Year": {
+        "field_number": "73",
+        "data_type": "decimal(20, 0)",
+        "format": "Rounded whole dollar amount, e.g., 20000000. No dollar sign, commas, or decimal.",
+        "required": true,
+        "unique": false,
+        "validation_rules": [
+            "Value must be a valid number.",
+            "Value must be greater than or equal to 0 and less than or equal to 9999999999999999999."
+        ]
+    },
+    "Short Term Debt": {
+        "field_number": "74",
+        "data_type": "decimal(20, 0)",
+        "format": "Rounded whole dollar amount, e.g., 20000000. No dollar sign, commas, or decimal.",
+        "required": true,
+        "unique": false,
+        "validation_rules": [
+            "Value must be a valid number.",
+            "Value must be greater than or equal to 0 and less than or equal to 9999999999999999999."
+        ]
+    },
+    "Current Maturities of Long Term Debt": {
+        "field_number": "75",
+        "data_type": "decimal(20, 0)",
+        "format": "Rounded whole dollar amount, e.g., 20000000. No dollar sign, commas, or decimal.",
+        "required": true,
+        "unique": false,
+        "validation_rules": [
+            "Value must be a valid number.",
+            "Value must be greater than or equal to 0 and less than or equal to 9999999999999999999."
+        ]
+    },
+    "Current Liabilities Current": {
+        "field_number": "76",
+        "data_type": "decimal(20, 0)",
+        "format": "Rounded whole dollar amount, e.g., 20000000. No dollar sign, commas, or decimal.",
+        "required": true,
+        "unique": false,
+        "validation_rules": [
+            "Value must be a valid number.",
+            "Value must be greater than or equal to 0 and less than or equal to 9999999999999999999.",
+            "Value must be greater than or equal to Short Term Debt (Field 74) + Accounts Payable (A/P) Current (Field 72) + Current Maturities of Long Term Debt (Field 75)."
+        ]
+    },
+    "Current Liabilities Prior Year": {
+        "field_number": "77",
+        "data_type": "decimal(20, 0)",
+        "format": "Rounded whole dollar amount, e.g., 20000000. No dollar sign, commas, or decimal.",
+        "required": true,
+        "unique": false,
+        "validation_rules": [
+            "Value must be a valid number.",
+            "Value must be greater than or equal to 0 and less than or equal to 9999999999999999999."
+        ]
+    },
+    "Long Term Debt": {
+        "field_number": "78",
+        "data_type": "decimal(30,0)",
+        "format": "Rounded whole dollar amount. Example: 20000000",
+        "required": true,
+        "unique": false,
+        "validation_rules": [
+            "Value must be greater than or equal to 0.",
+            "Value must be a valid number without any non-numeric formatting (no dollar sign, commas or decimal)."
+        ]
+    },
+    "Minority Interest": {
+        "field_number": "79",
+        "data_type": "varchar(30)",
+        "format": "Rounded whole dollar amount or 'NA'. Example: 20000000 or NA",
+        "required": true,
+        "unique": false,
+        "validation_rules": [
+            "Value must be either a valid number greater than or equal to 0, without any non-numeric formatting (no dollar sign, commas or decimal), or the string 'NA'.",
+            "If a numeric value is provided, it must be a rounded whole dollar amount."
+        ]
+    },
+    "Total Liabilities": {
+        "field_number": "80",
+        "data_type": "decimal(30,0)",
+        "format": "Rounded whole dollar amount. Example: 20000000",
+        "required": true,
+        "unique": false,
+        "validation_rules": [
+            "Value must be greater than or equal to 0.",
+            "Value must be a valid number without any non-numeric formatting (no dollar sign, commas or decimal)."
+        ]
+    },
+    "Retained Earnings": {
+        "field_number": "81",
+        "data_type": "decimal(30,0)",
+        "format": "Rounded whole dollar amount. Example: 20000000",
+        "required": true,
+        "unique": false,
+        "validation_rules": [
+            "Value can be positive or negative.",
+            "Value must be a valid number without any non-numeric formatting (no dollar sign, commas or decimal)."
+        ]
+    },
+    "Capital Expenditures": {
+        "field_number": "82",
+        "data_type": "decimal(30,0)",
+        "format": "Rounded whole dollar amount. Example: 20000000",
+        "required": true,
+        "unique": false,
+        "validation_rules": [
+            "Value must be greater than or equal to 0.",
+            "Value must be a valid number without any non-numeric formatting (no dollar sign, commas or decimal)."
+        ]
+    },
+    "Special Purpose Entity Flag": {
+        "field_number": "83",
+        "data_type": "integer",
+        "format": "Integer code. Example: 1 or 2",
+        "required": true,
+        "unique": false,
+        "validation_rules": [
+            "Value must be either 1 or 2.",
+            "1 = No",
+            "2 = Yes"
+        ]
+    },
+    "Lower of Cost or Market Flag": {
+        "field_number": "52",
+        "data_type": "integer",
+        "format": "Integer code",
+        "required": true,
+        "unique": false,
+        "validation_rules": [
+            "Value must be either 1, 2, or 3",
+            "1 = LOCOM",
+            "2 = FVO",
+            "3 = NA"
+        ]
+    },
+    "SNC Internal Credit ID": {
+        "field_number": "53",
+        "data_type": "varchar(255)",
+        "format": "Free text. May not contain a carriage return, line feed, comma or any unprintable character.",
+        "required": true,
+        "unique": false,
+        "validation_rules": [
+            "If Participation Flag is 4 or 5, then SNC Internal Credit ID must not be 'NA'",
+            "If Participation Flag is 1, 2, or 3, then SNC Internal Credit ID must be 'NA'"
+        ]
+    },
+    "Probability of Default": {
+        "field_number": "16",
+        "data_type": "decimal(5,4)",
+        "format": "Decimal to 4 places. Example: 0.5000 or 'NA'",
+        "required": true,
+        "unique": false,
+        "validation_rules": [
+            "Value must be 'NA' or a valid number.",
+            "If value is a number, it must be greater than or equal to 0.",
+            "If value is a number, it must be less than or equal to 1."
+        ]
+    },
+    "Loss Given Default": {
+        "field_number": "17",
+        "data_type": "decimal(5,2)",
+        "format": "Decimal to 2 places. Example: 0.50 or 'NA'",
+        "required": true,
+        "unique": false,
+        "validation_rules": [
+            "Value must be 'NA' or a valid number.",
+            "If value is a number, it must be greater than or equal to 0.",
+            "If value is a number, it must be less than or equal to 1."
+        ]
+    },
+    "Exposure At Default": {
+        "field_number": "18",
+        "data_type": "varchar(255)",
+        "format": "Rounded whole dollar amount, no commas or decimals. Example: 20000000 or 'NA'",
+        "required": true,
+        "unique": false,
+        "validation_rules": [
+            "Value must be 'NA' or a valid number.",
+            "If value is a number, it must be greater than or equal to 0.",
+            "If value is a number, it must be less than or equal to 9999999999999999.99."
+        ]
+    },
+    "Renewal Date": {
+        "field_number": "54",
+        "data_type": "date",
+        "format": "YYYY-MM-DD, e.g.: 2005-02-01. If not renewed, value must be '9999-12-31'.",
+        "required": true,
+        "unique": false,
+        "validation_rules": [
+            "Date must be in YYYY-MM-DD format",
+            "Date must be less than or equal to the report date",
+            "If Origination Date is equal to Current Maturity Date, then Renewal Date must be '9999-12-31'",
+            "Value must be '9999-12-31' or a valid date"
+        ]
+    },
+    "Credit Facility Currency": {
+        "field_number": "55",
+        "data_type": "varchar(3)",
+        "format": "Standard ISO 4217 three-letter currency codes, e.g., USD",
+        "required": true,
+        "unique": false,
+        "validation_rules": [
+            "Value must be a valid ISO 4217 three-letter currency code",
+            "Value must not be NULL"
+        ]
+    },
+    "Collateral Market Value": {
+        "field_number": "93",
+        "data_type": "varchar(30)",
+        "format": "Rounded whole dollar amount or 'NA'. Example: 20000000 or NA",
+        "required": true,
+        "unique": false,
+        "validation_rules": [
+            "Value must be a valid number greater than or equal to 0, without any non-numeric formatting (no dollar sign, commas or decimal), or the string 'NA'.",
+            "If the market value of collateral is not updated in the reporting entity\u2019s internal risk management systems as of the reporting date, value must be 'NA'."
+        ]
+    },
+    "Prepayment Penalty Flag": {
+        "field_number": "58",
+        "data_type": "integer",
+        "format": "Integer code",
+        "required": true,
+        "unique": false,
+        "validation_rules": [
+            "Value must be either 1, 2, or 3",
+            "1 = Yes",
+            "2 = The prepayment penalty has expired",
+            "3 = No prepayment penalty clause"
+        ]
+    },
+    "Entity Industry Code": {
+        "field_number": "95",
+        "data_type": "varchar(6)",
+        "format": "4 to 6 digit number. Example: 541611",
+        "required": true,
+        "unique": false,
+        "validation_rules": [
+            "Value must be a 4 to 6 digit number.",
+            "If the NAICS code is not available, then provide a SIC or GICS industry code."
+        ]
+    },
+    "Participation Interest": {
+        "field_number": "59",
+        "data_type": "decimal(7, 4)",
+        "format": "Express as a decimal to 4 decimal places, e.g., 0.05% is 0.0005. Use decimal format; do not use scientific notation.",
+        "required": true,
+        "unique": false,
+        "validation_rules": [
+            "Value must be greater than 0.0000 and less than or equal to 1.0000",
+            "If Participation Flag is 1, then Participation Interest must be 1.0000"
+        ]
+    },
+    "Leveraged Loan Flag": {
+        "field_number": "60",
+        "data_type": "integer",
+        "format": "Integer code",
+        "required": true,
+        "unique": false,
+        "validation_rules": [
+            "Value must be either 1 or 2",
+            "1 = No",
+            "2 = Yes"
+        ]
+    },
+    "Disposition Flag": {
+        "field_number": "61",
+        "data_type": "integer",
+        "format": "Integer code",
+        "required": true,
+        "unique": false,
+        "validation_rules": [
+            "Value must be between 0 and 7",
+            "0 = Active",
+            "1 = Payoff",
+            "2 = Involuntary payoff",
+            "3 = Involuntary Liquidation",
+            "4 = Sold or fully participated",
+            "5 = Below reporting threshold",
+            "6 = Transfer to another Y-14 schedule",
+            "7 = Expired Commitment to Commit"
+        ]
+    },
+    "Disposition Schedule Shift": {
+        "field_number": "62",
+        "data_type": "varchar(10)",
+        "format": "Report in the format using the examples: If the credit facility transferred to FR Y-14Q Schedule H.2 Corporate Loans, report \u201cQ.H.1\u201d. If the credit facility transferred to FR Y-14M Schedule A.1 Domestic First Lien Closed-end 1-4 Family Residential Loan Data Dictionary, report \u201cM.A.1\u201d.",
+        "required": true,
+        "unique": false,
+        "validation_rules": [
+            "If Disposition Flag is 6, then Disposition Schedule Shift must not be NULL or empty",
+            "If Disposition Flag is not 6, then Disposition Schedule Shift must be NULL or empty",
+            "Value must match the pattern '^[QM]\\.[A-Z]\\.\\d+$' or be NULL"
+        ]
+    },
+    "Syndicated Loan Flag": {
+        "field_number": "100",
+        "data_type": "integer",
+        "format": "Integer code. Example: 0, 1, 2, 3, or 4",
+        "required": true,
+        "unique": false,
+        "validation_rules": [
+            "Value must be either 0, 1, 2, 3, or 4.",
+            "0 = NA",
+            "1 = Single-signed",
+            "2 = Dual-signed",
+            "3 = Closed but not settled",
+            "4 = Closed and settled"
+        ]
+    },
+    "Target Hold": {
+        "field_number": "101",
+        "data_type": "varchar(30)",
+        "format": "Decimal to 4 decimal places or 'NA'. Example: 0.0005 or NA",
+        "required": true,
+        "unique": false,
+        "validation_rules": [
+            "Value must be a decimal between 0 and 1, or the string 'NA'.",
+            "If Syndicated Loan Flag is 0 or 4, value must be 'NA'."
+        ]
+    },
+    "ASC326-20": {
+        "field_number": "63",
+        "data_type": "decimal(20, 2)",
+        "format": "Rounded whole dollar amount, e.g.: 20000000.00. Supply numeric values without any non- numeric formatting such as no dollar signs, commas or decimals.",
+        "required": true,
+        "unique": false,
+        "validation_rules": [
+            "Value must be greater than or equal to 0.00",
+            "If Outstanding Balance > 0, then ASC326-20 >= 0"
+        ]
+    },
+    "Purchased Credit Deteriorated  Noncredit Discount": {
+        "field_number": "103",
+        "data_type": "decimal(30,0)",
+        "format": "Rounded whole dollar amount. Example: 20000000",
+        "required": true,
+        "unique": false,
+        "validation_rules": [
+            "Value must be a valid number without any non-numeric formatting (no dollar sign, commas or decimal).",
+            "Leave Blank if the facility is not considered a PCD asset."
+        ]
+    },
+    "Current Maturity Date": {
+        "field_number": "65",
+        "data_type": "date",
+        "format": "YYYY-MM-DD, e.g.: 2005-02-01. For demand loan, enter \u20189999-01-01\u2019.",
+        "required": true,
+        "unique": false,
+        "validation_rules": [
+            "Date must be in YYYY-MM-DD format",
+            "Value must be a valid date",
+            "Value must be greater than or equal to Origination Date",
+            "Value must be greater than or equal to Renewal Date if Renewal Date is not '9999-12-31'"
+        ]
+    },
+    "Committed Exposure Global Par Value": {
+        "field_number": "66",
+        "data_type": "decimal(20, 2)",
+        "format": "Rounded whole dollar amount, e.g.: 20000000.00. Supply numeric values without any non- numeric formatting (no dollar sign, commas or decimal). If not held for sale or accounted for under a fair value option, report \u2018NA\u2019.",
+        "required": true,
+        "unique": false,
+        "validation_rules": [
+            "If Lower of Cost or Market Flag is 3, then value must be 'NA'",
+            "If Lower of Cost or Market Flag is 1 or 2, then value must be a valid decimal number greater than or equal to 0.00"
+        ]
+    },
+    "Utilized Exposure Global Par Value": {
+        "field_number": "106",
+        "data_type": "decimal(18,2)",
+        "format": "Rounded whole dollar amount, no commas or decimals. Example: 20000000. Negative values allowed with a negative sign '-'.",
+        "required": true,
+        "unique": false,
+        "validation_rules": [
+            "If Lower of Cost or Market Flag is '3' (NA), then value must be 'NA'.",
+            "If Lower of Cost or Market Flag is '1' (LOCOM) or '2' (FVO), then value must be a valid number or 'NA'.",
+            "If value is a number, it must be greater than or equal to 0 or a negative number.",
+            "If value is a number, it must be less than or equal to Committed Exposure Global Par Value if Committed Exposure Global Par Value is a number.",
+            "If value is a number, it must be less than or equal to 9999999999999999.99."
+        ]
+    },
+    "Committed Exposure Global Fair Value": {
+        "field_number": "68",
+        "data_type": "decimal(20, 2)",
+        "format": "Rounded whole dollar amount, e.g.: 20000000.00. Supply numeric values without any non- numeric formatting (no dollar sign, commas or decimal). If not held for sale or accounted for under a fair value option, report \u2018NA\u2019.",
+        "required": true,
+        "unique": false,
+        "validation_rules": [
+            "If Lower of Cost or Market Flag is 3, then value must be 'NA'",
+            "If Lower of Cost or Market Flag is 1 or 2, then value must be a valid decimal number greater than or equal to 0.00"
+        ]
+    },
+    "Utilized Exposure Global Fair Value": {
+        "field_number": "108",
+        "data_type": "decimal(18,2)",
+        "format": "Rounded whole dollar amount, no commas or decimals. Example: 20000000. Negative values allowed with a negative sign '-'.",
+        "required": true,
+        "unique": false,
+        "validation_rules": [
+            "If Lower of Cost or Market Flag is '3' (NA), then value must be 'NA'.",
+            "If Lower of Cost or Market Flag is '1' (LOCOM) or '2' (FVO), then value must be a valid number or 'NA'.",
+            "If value is a number, it must be greater than or equal to 0 or a negative number.",
+            "If value is a number, it must be less than or equal to Committed Exposure Global Fair Value if Committed Exposure Global Fair Value is a number.",
+            "If value is a number, it must be less than or equal to 9999999999999999.99."
+        ]
+    },
+    "Obligor LEI": {
+        "field_number": "72",
+        "data_type": "varchar(20)",
+        "format": "Must be a valid 20 character alphanumeric LEI issued by a LOU of the Global LEI System, or \u2018NA\u2019.",
+        "required": true,
+        "unique": false,
+        "validation_rules": [
+            "Value must be 'NA' or match the pattern '^[A-Z0-9]{20}$'"
+        ]
+    },
+    "Primary Source of Repayment LEI": {
+        "field_number": "112",
+        "data_type": "varchar(20)",
+        "format": "20 character alphanumeric code or 'NA'. Example: 5493001KJTIIGC1YVC05",
+        "required": true,
+        "unique": false,
+        "validation_rules": [
+            "Value must be 'NA' or match the pattern '^[A-Z0-9]{20}$'",
+            "If value is not 'NA', it must be a valid LEI issued by a LOU of the Global LEI System.",
+            "If EntityInternalID is NULL, then this field must be NULL.",
+            "If EntityInternalID is not NULL, then this field is required."
+        ]
+    },
+    "Loan Number": {
+        "field_number": "1",
+        "data_type": "varchar(255)",
+        "format": "Free text, no specific format. Example: LN12345",
+        "required": true,
+        "unique": true,
+        "validation_rules": [
+            "Field length must be less than or equal to 255 characters.",
+            "Field must not contain a carriage return, line feed, comma or any unprintable character."
+        ]
+    },
+    "Outstanding Balance": {
+        "field_number": "3",
+        "data_type": "decimal(18,2)",
+        "format": "Rounded whole dollar amount, no commas or decimals. Example: 20000000.00",
+        "required": true,
+        "unique": false,
+        "validation_rules": [
+            "Value must be greater than or equal to 0.",
+            "Value must be less than or equal to 9999999999999999.99."
+        ]
+    },
+    "Property Type": {
+        "field_number": "9",
+        "data_type": "integer",
+        "format": "Integer code. Example: 1",
+        "required": true,
+        "unique": false,
+        "validation_rules": [
+            "Value must be one of the following: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12"
+        ]
+    },
+    "Location": {
+        "field_number": "11",
+        "data_type": "varchar(255)",
+        "format": "Five-digit ZIP code or 2-letter country code or 'Multiple'. Example: 10001 or US or Multiple",
+        "required": true,
+        "unique": false,
+        "validation_rules": [
+            "If location is within the US, value must match the pattern '^\\d{5}$'.",
+            "If location is outside the US, value must match the pattern '^[A-Z]{2}$'.",
+            "If multiple properties without one predominating, value must be 'Multiple'."
+        ]
+    },
+    "Net Operating Income at Origination": {
+        "field_number": "12",
+        "data_type": "varchar(255)",
+        "format": "Rounded whole dollar amount, no commas or decimals. Example: 20000000 or 'NA'",
+        "required": true,
+        "unique": false,
+        "validation_rules": [
+            "Value must be 'NA' or a valid number.",
+            "If value is a number, it must be less than or equal to 9999999999999999.99.",
+            "If value is a number, it can be positive or negative.",
+            "If Property Type is 1 (1-4 family residential construction loans) or 2 (Other construction loans and all land development and other land loans) and the loan is not cross-collateralized with another property generating income, then value must be 'NA'."
+        ]
+    },
+    "Value at Origination": {
+        "field_number": "13",
+        "data_type": "decimal(18,2)",
+        "format": "Rounded whole dollar amount, no commas or decimals. Example: 20000000.00",
+        "required": true,
+        "unique": false,
+        "validation_rules": [
+            "Value must be greater than or equal to 0.",
+            "Value must be less than or equal to 9999999999999999.99."
+        ]
+    },
+    "Value Basis": {
+        "field_number": "14",
+        "data_type": "integer",
+        "format": "Integer code. Example: 1",
+        "required": true,
+        "unique": false,
+        "validation_rules": [
+            "Value must be one of the following: 1, 2, 3"
+        ]
+    },
+    "Internal Rating": {
+        "field_number": "15",
+        "data_type": "varchar(255)",
+        "format": "Rating-code-1:% as decimal; Rating-code-2:% as decimal;... Example: AAA:1 or A:0.5;C:0.5",
+        "required": true,
+        "unique": false,
+        "validation_rules": [
+            "Value must match the pattern '^([A-Z0-9]+:[0-9]+(\\.[0-9]+)?)(;[A-Z0-9]+:[0-9]+(\\.[0-9]+)?)*$'",
+            "The sum of the decimal amounts must equal 1."
+        ]
+    },
+    "Amortization": {
+        "field_number": "20",
+        "data_type": "integer",
+        "format": "Whole months. Example: 120",
+        "required": true,
+        "unique": false,
+        "validation_rules": [
+            "Value must be greater than or equal to -1.",
+            "If Value is 0, then the loan is interest only.",
+            "If Value is -1, then the amortization schedule is non-standard.",
+            "If Value is greater than 0, then the loan has a monthly amortization schedule.",
+            "Value must be a whole number."
+        ]
+    },
+    "Recourse": {
+        "field_number": "21",
+        "data_type": "integer",
+        "format": "Integer code. Example: 3",
+        "required": true,
+        "unique": false,
+        "validation_rules": [
+            "Value must be one of the following: 3, 4, 5.",
+            "3: Full Recourse",
+            "4: Partial Recourse",
+            "5: None Recourse"
+        ]
+    },
+    "Current Occupancy": {
+        "field_number": "23",
+        "data_type": "decimal(5,2)",
+        "format": "Decimal between 0 and 1. Example: 0.80",
+        "required": true,
+        "unique": false,
+        "validation_rules": [
+            "Value must be between 0 and 1, inclusive.",
+            "If the loan is 1-4 family Residential Construction (FR Y-9C, Schedule HC-C, item 1.a(1)) or other construction and land development loans (FR Y-9C, Schedule HC-C, item 1.a(2)) and does not have a currently valid certificate of occupancy, then value must be 'NA'.",
+            "If value is 'NA', then Current Occupancy Date must be NULL.",
+            "If value is not 'NA', then Current Occupancy Date must not be NULL."
+        ]
+    },
+    "Anchor Tenant": {
+        "field_number": "24",
+        "data_type": "varchar(255)",
+        "format": "Free text. Multiple tenants separated by ';;'. Example: TenantA;;TenantB",
+        "required": false,
+        "unique": false,
+        "validation_rules": [
+            "Value must not contain a vertical bar (|).",
+            "If multiple tenants, separate names with a double semi-colon ';;'."
+        ]
+    },
+    "Loan Purpose": {
+        "field_number": "25",
+        "data_type": "integer",
+        "format": "Integer code. Example: 1",
+        "required": true,
+        "unique": false,
+        "validation_rules": [
+            "Value must be one of the following: 1, 2, 3, 6, 7, 8, 9.",
+            "1: Construction Build to Suit / Credit Tenant Lease",
+            "2: Land Acquisition & Development",
+            "3: Construction Other",
+            "6: Acquisition (nonowner occupied)",
+            "7: Refinance",
+            "8: Other",
+            "9: Mini-Perm"
+        ]
+    },
+    "Frequency of Rate Reset": {
+        "field_number": "32",
+        "data_type": "varchar(10)",
+        "format": "Integer or 'NA'. Example: 1 or NA",
+        "required": true,
+        "unique": false,
+        "validation_rules": [
+            "If Interest Rate Variability is 1 (Fixed) or 4 (Entirely fee based), then value must be 'NA'.",
+            "If Interest Rate Variability is not 1 (Fixed) and not 4 (Entirely fee based), then value must be a valid integer.",
+            "If value is an integer, it must be greater than or equal to 1."
+        ]
+    },
+    "Interest Reserves": {
+        "field_number": "33",
+        "data_type": "integer",
+        "format": "Whole dollar amount. Example: 20000000",
+        "required": true,
+        "unique": false,
+        "validation_rules": [
+            "Value must be greater than or equal to 0.",
+            "Value must be a whole number."
+        ]
+    },
+    "Origination Amount": {
+        "field_number": "34",
+        "data_type": "integer",
+        "format": "Whole dollar amount. Example: 20000000",
+        "required": true,
+        "unique": false,
+        "validation_rules": [
+            "Value must be greater than or equal to 0.",
+            "Value must be a whole number."
+        ]
+    },
+    "Original/Previous Loan Number": {
+        "field_number": "35",
+        "data_type": "varchar(255)",
+        "format": "Free text. Multiple IDs separated by ','. Example: 123,XYZ",
+        "required": true,
+        "unique": false,
+        "validation_rules": [
+            "Value must not contain a carriage return or line feed.",
+            "If multiple IDs, separate them by a comma ','.",
+            "Each ID must correspond to a Loan Number in the CRE collection."
+        ]
+    },
+    "Acquired Loan": {
+        "field_number": "36",
+        "data_type": "integer",
+        "format": "Integer code. Example: 1",
+        "required": true,
+        "unique": false,
+        "validation_rules": [
+            "Value must be one of the following: 1, 2.",
+            "1: Yes",
+            "2: No"
+        ]
+    },
+    "Property Size": {
+        "field_number": "39",
+        "data_type": "varchar(255)",
+        "format": "Whole number or 'Other' or 'NA'. Example: 12345 or Other or NA",
+        "required": true,
+        "unique": false,
+        "validation_rules": [
+            "If the facility is secured by multiple properties, then value must be 'NA'.",
+            "If the facility is secured by a single property which is comprised of multiple property types and no single property type predominates, then value must be 'Other'.",
+            "If the property type reported in Field 9 is 'Other', then value must be 'Other'.",
+            "If the facility is secured by one property and the property type reported in Field 9 is not 'Other', then value must be a whole number."
+        ]
+    },
+    "Net Operating Income (NOI) Current": {
+        "field_number": "40",
+        "data_type": "varchar(255)",
+        "format": "Whole dollar amount or 'NA'. Example: 20000000 or NA",
+        "required": true,
+        "unique": false,
+        "validation_rules": [
+            "If the loan is a land and construction loan (i.e. 1-4 family residential construction loans reported in FR Y-9C, Schedule HC-C, item 1.a (1) or other construction and land development loan reported in FR Y-9C, Schedule HC-C, item 1.a(2)) that is (1) not currently generating income, and (2) not cross-collateralized with another property currently generating income, then value must be 'NA'.",
+            "If value is 'NA', then Last NOI Date must be NULL.",
+            "If value is not 'NA', then Last NOI Date must not be NULL.",
+            "If value is not 'NA', then value must be a whole number."
+        ]
+    },
+    "Last NOI Date": {
+        "field_number": "41",
+        "data_type": "date",
+        "format": "YYYY-MM-DD. Example: 2005-02-01",
+        "required": true,
+        "unique": false,
+        "validation_rules": [
+            "Value must be in YYYY-MM-DD format.",
+            "Value must be before or equal to the report date.",
+            "If Net Operating Income (NOI) Current is 'NA', then value must be NULL.",
+            "If Net Operating Income (NOI) Current is not 'NA', then value must not be NULL."
+        ]
+    },
+    "Current Value": {
+        "field_number": "42",
+        "data_type": "integer",
+        "format": "Whole dollar amount. Example: 20000000",
+        "required": true,
+        "unique": false,
+        "validation_rules": [
+            "Value must be greater than or equal to 0.",
+            "Value must be a whole number."
+        ]
+    },
+    "Last Valuation Date": {
+        "field_number": "43",
+        "data_type": "date",
+        "format": "YYYY-MM-DD. Example: 2005-02-01",
+        "required": true,
+        "unique": false,
+        "validation_rules": [
+            "Value must be in YYYY-MM-DD format.",
+            "Value must be before or equal to the report date."
+        ]
+    },
+    "Cross Collateralized Loan Numbers": {
+        "field_number": "44",
+        "data_type": "varchar(255)",
+        "format": "Loan Numbers separated by ','. Example: 123,XYZ",
+        "required": true,
+        "unique": false,
+        "validation_rules": [
+            "Each Loan Number must have a corresponding entry in the CRE collection.",
+            "Cross-collateralized loans that are not CRE Loans should be excluded.",
+            "One loan secured by multiple properties is not considered cross-collateralized for the purpose of this field."
+        ]
+    },
+    "Additional Collateral": {
+        "field_number": "45",
+        "data_type": "decimal(20, 2)",
+        "format": "Rounded whole dollar amount with no cents, e.g.: 20000000.00. Supply numeric values without any non-numeric formatting such as dollar signs, commas or decimals.",
+        "required": false,
+        "unique": false,
+        "validation_rules": [
+            "Value must be greater than or equal to 0.00"
+        ]
+    },
+    "ASC 310-30": {
+        "field_number": "47",
+        "data_type": "decimal(20, 2)",
+        "format": "Rounded whole dollar amount with no cents, e.g.: 20000000.00. Supply numeric values without any non-numeric formatting such as dollar signs, commas or decimals.",
+        "required": true,
+        "unique": false,
+        "validation_rules": [
+            "Value must be greater than or equal to 0.00",
+            "If Outstanding Balance > 0, then ASC 310-30 >= 0",
+            "If Current Maturity Date = '9999-01-01', then value must be 0.00"
+        ]
+    },
+    "Troubled Debt Restructuring": {
+        "field_number": "49",
+        "data_type": "integer",
+        "format": "Integer code",
+        "required": true,
+        "unique": false,
+        "validation_rules": [
+            "Value must be either 1 or 2",
+            "1 = No",
+            "2 = Yes"
+        ]
+    },
+    "Current Occupancy Date": {
+        "field_number": "56",
+        "data_type": "date",
+        "format": "YYYY-MM-DD, e.g.: 2005-02-01. This date may be Null (i.e. blank) if the Current Occupancy (Field 23) is \u2018NA\u2019.",
+        "required": true,
+        "unique": false,
+        "validation_rules": [
+            "Date must be in YYYY-MM-DD format",
+            "Date must be less than or equal to the report date",
+            "If Current Occupancy is 'NA', then Current Occupancy Date may be NULL",
+            "If Current Occupancy is not 'NA', then Current Occupancy Date must not be NULL",
+            "Value must be a valid date or NULL"
+        ]
+    },
+    "Current Value Basis": {
+        "field_number": "57",
+        "data_type": "integer",
+        "format": "Integer code",
+        "required": true,
+        "unique": false,
+        "validation_rules": [
+            "Value must be either 1, 2, or 3",
+            "1 = As Is",
+            "2 = As Stabilized",
+            "3 = As Completed"
+        ]
+    },
+    "Purchased Credit Deteriorated Noncredit Discount": {
+        "field_number": "64",
+        "data_type": "decimal(20, 2)",
+        "format": "Rounded whole dollar amount, e.g.: 20000000.00. Supply numeric values without any non- numeric formatting such as no dollar signs, commas or decimals.",
+        "required": true,
+        "unique": false,
+        "validation_rules": [
+            "Value must be greater than or equal to 0.00"
+        ]
+    },
+    "Outstanding Balance Par Value": {
+        "field_number": "67",
+        "data_type": "decimal(20, 2)",
+        "format": "Rounded whole dollar amount, e.g.: 20000000.00. Supply numeric values without any non- numeric formatting (no dollar sign, commas or decimal). If not held for sale or accounted for under a fair value option, report \u2018NA\u2019.",
+        "required": true,
+        "unique": false,
+        "validation_rules": [
+            "If Lower of Cost or Market Flag is 3, then value must be 'NA'",
+            "If Lower of Cost or Market Flag is 1 or 2, then value must be a valid decimal number greater than or equal to 0.00"
+        ]
+    },
+    "Outstanding Balance Fair Value": {
+        "field_number": "69",
+        "data_type": "decimal(20, 2)",
+        "format": "Rounded whole dollar amount, e.g.: 20000000.00. Supply numeric values without any non- numeric formatting (no dollar sign, commas or decimal). If not held for sale or accounted for under a fair value option, report \u2018NA\u2019.",
+        "required": true,
+        "unique": false,
+        "validation_rules": [
+            "If Lower of Cost or Market Flag is 3, then value must be 'NA'",
+            "If Lower of Cost or Market Flag is 1 or 2, then value must be a valid decimal number greater than or equal to 0.00"
+        ]
+    }
+}
