@@ -34,11 +34,11 @@ The inspiration behind this project stems from the need to streamline regulatory
 ## ⚙️ What It Does
 1. **Regulatory Instruction Interpretation:** Extracts and interprets regulatory reporting instructions to identify data validation requirements.
 
-2. **Automated Profiling Rule Generation:** Uses Large Language Models (LLMs) to generate profiling rules based on allowable values and cross-relations between data elements.
+2. **Automated Profiling Rule Generation:** Uses Large Language Models (LLM-Gemini) to generate profiling rules based on allowable values and cross-relations between data elements.
 
-3. **Executable Validation Code:** Generates code to assess data conformity against extracted rules.
+3. **Executable Validation Code:** Generates executable SQL queries to assess data conformity against extracted rules.
 
-4. **Anomaly Detection with Reasoning:** Identifies flagged transactions along with their reasons, combining outputs from SQL validation and an Isolation Forest unsupervised learning model.     The results are further enhanced with natural language reasoning using the Gemini API, providing comprehensive insights into anomalous transactions.
+4. **Anomaly Detection with Reasoning:** Identifies flagged transactions along with their reasons, combining outputs from SQL validation and a unsupervised learning approach(Isolation Forest). The results are further enhanced with natural language reasoning using the Gemini, providing comprehensive and human readable insights into anomalous transactions.
 
 5. **Interactive Custom Conversational Interface (Chainlit UI):** Offers a user-friendly and ADA compliant interface for two primary personas:
 
@@ -62,11 +62,11 @@ Our solution was developed using a diverse set of modern technologies and tools 
 
 *   **Chainlit:** Utilized for creating a interactive conversational interface that facilitates smooth interactions between users and the system.
 
-*   **Gemini API:** Integrated to generate profiling rules and SQL queries for validation and natural language explanations for flagged transactions, enhancing transparency and understanding.
+*   **Gemini:** Integrated to generate profiling rules and SQL queries for validation and natural language explanations for flagged transactions, enhancing transparency and understanding.
 
 *   **Scikit-learn:** Employed for implementing machine learning models, specifically the Isolation Forest algorithm for detecting anomalies.
 
-*   **FastAPI:** Used to build a high-performance backend API that efficiently handles data processing and requests.
+*   **FastAPI:** Used to build a high-performance python based backend API that efficiently handles data processing and requests.
 
 *   **React:** Implemented for developing a responsive and interactive frontend interface.
 
@@ -80,6 +80,9 @@ Our solution was developed using a diverse set of modern technologies and tools 
 
 
 ## 🔜 Future Scope
+
+✔️ **Chain-of-Thoughts:**  
+   - Incorporate real time streaming of chain of thoughts to ensure explainable AI
 
 ✔️ **Multi-language support:**  
    - Expand accessibility across regions by incorporating **prompt enhancement** to generate accurate, context-specific profiling rules in multiple languages.  
@@ -111,7 +114,7 @@ Our solution was developed using a diverse set of modern technologies and tools 
        
         Navigate to the backend directory.
         ```sh
-        cd src/Backend server
+        cd code/src/Backend server
         ```
         Create virtual environment for backend: 
         ```sh
@@ -129,7 +132,7 @@ Our solution was developed using a diverse set of modern technologies and tools 
     
        Navigate to the frontend directory.
         ```sh
-        cd src/Chatbot
+        cd code/src/Chatbot
         ```
        Similarly create virtual environment for frontend: 
         ```sh
@@ -146,7 +149,7 @@ Our solution was developed using a diverse set of modern technologies and tools 
 
    1.   **Backend Dependencies:**
 
-        Navigate to the backend directory.Install the required dependencies using pip:
+        Navigate to the backend directory. Install the required dependencies using pip:
         ```sh
         pip install -r requirements.txt
         ```
@@ -154,13 +157,13 @@ Our solution was developed using a diverse set of modern technologies and tools 
         ```sh
         GEMINI_API_KEY = <your_api_key>
         ```
-        Run the backend server:
+        Run the backend server from backend directory:
         ```sh
         python main.py
         ```
    3.   **Frontend Dependencies:**
       
-        Navigate to the frontend directory.Install the required dependencies using pip:
+        Navigate to the frontend directory. Install the required dependencies using pip:
         ```sh
         pip install -r requirements.txt
         ```
@@ -170,7 +173,7 @@ Our solution was developed using a diverse set of modern technologies and tools 
         ```
         Run the frontend application:
         ```sh
-        chainlit run chatbot.py
+        chainlit run app.py
         ```
 
 
@@ -178,7 +181,7 @@ Our solution was developed using a diverse set of modern technologies and tools 
 - 🔹 Frontend: React , Chainlit
 - 🔹 Backend: FastAPI , Python
 - 🔹 Database: SQLite3
-- 🔹 Other: Gemini AI API
+- 🔹 LLM: Gemini
 
   
 ![Gen AI Hackathon (1)](https://github.com/user-attachments/assets/dec27744-53c9-4c04-a645-b4ac1dd21f19)
