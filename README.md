@@ -21,12 +21,8 @@ In the banking sector, regulatory reporting involves compiling and analyzing vas
 
 Our project addresses this challenge by leveraging Generative AI (LLMs) and unsupervised machine learning techniques to automate data profiling. Our goal was to develop a solution that extracts regulatory instructions, generates profiling rules, and flags anomalous transactions along with the reason. By automating these processes, we aim to enhance operational efficiency, reduce compliance risks, and improve reporting accuracy.
 
-## 🎥 Demo
-🔗 [Live Demo](#) (if applicable)  
-📹 [Video Demo](#) (if applicable)  
-🖼️ Screenshots:
-
-![Screenshot 1](link-to-image)
+## 🎥 Demo 
+📹 [Video Demo](https://www.youtube.com/watch?v=Aj9ROBBJVmk)  
 
 ## 💡 Inspiration
 The inspiration behind this project stems from the need to streamline regulatory reporting in banking by automating data profiling. Traditional methods involve manual rule definition, which is time-consuming and prone to errors. By leveraging AI and machine learning, we aim to enhance compliance efficiency and accuracy.
@@ -193,4 +189,4 @@ Our solution was developed using a diverse set of modern technologies and tools 
 )
 - **Nikhil Giri** - [GitHub](https://github.com/NikhilGiri29) | [LinkedIn](https://www.linkedin.com/in/nikhil-giri-aa7704200/?originalSubdomain=in)
 - **Aishwarya Attanti** - [GitHub](https://github.com/attanti123) | [LinkedIn](https://www.linkedin.com/in/attanti123/)
-- **Lalitha Ramakrishnan** - [LinkedIn](https://www.linkedin.com/in/lalitha-ramakrishnan-0a8b66a/)
+- **Lalitha Ramakrishnan** - [GitHub](https://github.com/lalithapanda) | [LinkedIn](https://www.linkedin.com/in/lalitha-ramakrishnan-0a8b66a/)
